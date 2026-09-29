@@ -19,7 +19,7 @@
 1. **Header (固定ナビゲーション)**:
    * ブランドシンボル: キャラクター顔アイコン（丸型アバター）
    * ブランド表記: よしむら / データマネジメント系Vtuber
-   * グローバルナビ: TOP / VIDEOS / PROFILE / WORKS / CONTACT
+   * グローバルナビ: TOP / VIDEOS / NOTE / PROFILE / WORKS / CONTACT
    * 公式SNSリンク: YouTube / X
    * モバイル対応: ハンバーガーメニュー展開
 
@@ -36,12 +36,21 @@
    * 大見出し: RECOMMENDED VIDEOS
    * 公式チャンネルへの誘導リンク: VIEW ALL
    * YouTube公式配信アーカイブの埋め込みプレーヤー（2カラムグリッド）:
-     - データに関する雑談配信 生成AIガバナンスの話 (hALx-NccSCI)
-     - データに関する雑談配信 データマネジメント試験 解説動画の公開収録 (a2KFobA2PKM)
-     - データに関する雑談配信 AIがやったことの責任はどうなる？ (yUpk3rD7T7s)
-     - データ界隈LT祭 オンライン配信 第一回 (cJeH3jE3Wno)
+     - データマネジメント試験対策動画 (PDe8YS_5bCo)
+     - データマネジメントゆっくり解説 (QCuygkRZctc)
+     - データ界隈LT祭 アーカイブプレイリスト (IZV9Q54KHg8)
+     - データに関する雑談配信 (vWed26B3rgM)
 
-4. **PROFILE (公式タレントデータ)**:
+4. **NOTE (連載マガジン・技術記事)**:
+   * 大見出し: TECHNICAL ARTICLES NOTE
+   * 公式noteへの誘導リンク: VIEW ALL
+   * YouTube動画カードと共通の2×2リッチカードレイアウト:
+     1. 生成AIガバナンスとマネジメントの解説 (マガジンURL: `https://note.com/datamanagement/m/mbdf1d8650ad3`)
+     2. データマネジメント知識体系ガイド DMBOK 要約解説 (マガジンURL: `https://note.com/datamanagement/m/m3f27a63bfe25`)
+     3. データ界隈LT祭 立ち上げ日記 (マガジンURL: `https://note.com/datamanagement/m/m6822d4486543`)
+     4. 技術同人誌 執筆出展日記 (マガジンURL: `https://note.com/datamanagement/m/m95da708ecc66`)
+
+5. **PROFILE (公式タレントデータ)**:
    * 大見出し: OFFICIAL DATA PROFILE
    * 2カラム公式データシート（端正な罫線テーブル）:
      - 専門領域: データマネジメント DMBOK / 生成AIガバナンス

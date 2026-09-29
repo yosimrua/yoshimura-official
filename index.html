@@ -864,11 +864,76 @@
       color: var(--brand-primary-light);
     }
 
+    /* Note Section Styles */
+    .section-note {
+      background-color: var(--color-bg-surface);
+    }
+
+    .media-card-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .note-cover-box {
+      cursor: pointer;
+    }
+
+    .note-overlay {
+      background: rgba(0, 0, 0, 0.2);
+      transition: background 0.25s ease, opacity 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .media-card:hover .note-overlay {
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .note-read-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(26, 26, 26, 0.88);
+      color: var(--color-white);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 4px;
+      backdrop-filter: blur(4px);
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .media-card:hover .note-read-btn {
+      background: var(--brand-primary);
+      transform: scale(1.05);
+    }
+
+    .media-headline a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .media-headline a:hover {
+      color: var(--brand-primary);
+    }
+
+    .media-description {
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 14px;
+      flex-grow: 1;
+    }
+
     /* ==========================================================================
    6. PROFILE / DATA (Official Spec Table)
    ========================================================================== */
     .section-profile {
-      background-color: var(--color-bg-surface);
+      background-color: var(--color-bg-base);
     }
 
     .profile-data-sheet {
@@ -1417,6 +1482,7 @@
         <ul class="nav-menu">
           <li><a href="#top" class="nav-link active">TOP</a></li>
           <li><a href="#videos" class="nav-link">VIDEOS</a></li>
+          <li><a href="#note" class="nav-link">NOTE</a></li>
           <li><a href="#profile" class="nav-link">PROFILE</a></li>
           <li><a href="#creations" class="nav-link">作品リスト</a></li>
           <li><a href="#works" class="nav-link">WORK</a></li>
@@ -1626,6 +1692,154 @@
               <a href="https://youtube.com/live/vWed26B3rgM" target="_blank" rel="noopener noreferrer"
                 class="media-direct-link">
                 YouTubeで視聴する <i class="ph ph-arrow-up-right"></i>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         NOTE (公式note・連載マガジン)
+         ======================================================================== -->
+    <section class="content-section section-note" id="note">
+      <div class="content-container">
+
+        <div class="section-title-row">
+          <div class="title-group">
+            <span class="title-sub">TECHNICAL ARTICLES</span>
+            <h2 class="title-main">NOTE</h2>
+          </div>
+          <a href="https://note.com/datamanagement" target="_blank" rel="noopener noreferrer"
+            class="section-view-all">
+            VIEW ALL <i class="ph ph-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="videos-layout-grid">
+
+          <!-- 1. 生成AIガバナンスとマネジメントの解説 -->
+          <article class="media-card">
+            <a href="https://note.com/datamanagement/m/mbdf1d8650ad3" target="_blank" rel="noopener noreferrer" class="media-card-link" aria-label="生成AIガバナンスとマネジメントの解説">
+              <div class="media-embed-box note-cover-box">
+                <img src="assets/note_ai_governance.jpg" alt="生成AIガバナンスとマネジメントの解説" class="media-thumbnail">
+                <div class="media-play-overlay note-overlay">
+                  <span class="note-read-btn">
+                    <i class="ph-fill ph-article"></i>
+                    <span>noteで読む</span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="media-details">
+              <div class="media-meta-row">
+                <span class="media-category-label cat-ai">生成AIガバナンス</span>
+                <span class="media-published">MAGAZINE</span>
+              </div>
+              <h3 class="media-headline">
+                <a href="https://note.com/datamanagement/m/mbdf1d8650ad3" target="_blank" rel="noopener noreferrer">生成AIガバナンスとマネジメントの解説</a>
+              </h3>
+              <p class="media-description">
+                生成AIマネジメントフレームワークの全体像と実務適用のポイントをわかりやすく解説する連載マガジン。
+              </p>
+              <a href="https://note.com/datamanagement/m/mbdf1d8650ad3" target="_blank" rel="noopener noreferrer"
+                class="media-direct-link">
+                noteでマガジンを読む <i class="ph ph-arrow-up-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- 2. データマネジメント知識体系ガイドDMBOK要約・解説 -->
+          <article class="media-card">
+            <a href="https://note.com/datamanagement/m/m3f27a63bfe25" target="_blank" rel="noopener noreferrer" class="media-card-link" aria-label="データマネジメント知識体系ガイド DMBOK 要約解説">
+              <div class="media-embed-box note-cover-box">
+                <img src="assets/note_dmbok.jpg" alt="データマネジメント知識体系ガイド DMBOK 要約解説" class="media-thumbnail">
+                <div class="media-play-overlay note-overlay">
+                  <span class="note-read-btn">
+                    <i class="ph-fill ph-article"></i>
+                    <span>noteで読む</span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="media-details">
+              <div class="media-meta-row">
+                <span class="media-category-label cat-dmbok">DMBOK要約</span>
+                <span class="media-published">MAGAZINE</span>
+              </div>
+              <h3 class="media-headline">
+                <a href="https://note.com/datamanagement/m/m3f27a63bfe25" target="_blank" rel="noopener noreferrer">データマネジメント知識体系ガイド DMBOK 要約解説</a>
+              </h3>
+              <p class="media-description">
+                データ実務者必読のDMBOK体系を、第1章から順を追って実務に役立つエッセンスとして要約・解説したマガジン。
+              </p>
+              <a href="https://note.com/datamanagement/m/m3f27a63bfe25" target="_blank" rel="noopener noreferrer"
+                class="media-direct-link">
+                noteでマガジンを読む <i class="ph ph-arrow-up-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- 3. LT祭 立ち上げ日記 -->
+          <article class="media-card">
+            <a href="https://note.com/datamanagement/m/m6822d4486543" target="_blank" rel="noopener noreferrer" class="media-card-link" aria-label="データ界隈LT祭 立ち上げ日記">
+              <div class="media-embed-box note-cover-box">
+                <img src="assets/note_ltfes.jpg" alt="データ界隈LT祭 立ち上げ日記" class="media-thumbnail">
+                <div class="media-play-overlay note-overlay">
+                  <span class="note-read-btn">
+                    <i class="ph-fill ph-article"></i>
+                    <span>noteで読む</span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="media-details">
+              <div class="media-meta-row">
+                <span class="media-category-label cat-event">コミュニティ</span>
+                <span class="media-published">MAGAZINE</span>
+              </div>
+              <h3 class="media-headline">
+                <a href="https://note.com/datamanagement/m/m6822d4486543" target="_blank" rel="noopener noreferrer">データ界隈LT祭 立ち上げ日記</a>
+              </h3>
+              <p class="media-description">
+                実務者コミュニティ データ界隈LT祭 の立ち上げの背景や運営のリアルな知見を記録した運営日記マガジン。
+              </p>
+              <a href="https://note.com/datamanagement/m/m6822d4486543" target="_blank" rel="noopener noreferrer"
+                class="media-direct-link">
+                noteでマガジンを読む <i class="ph ph-arrow-up-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- 4. 技術同人誌執筆日記 -->
+          <article class="media-card">
+            <a href="https://note.com/datamanagement/m/m95da708ecc66" target="_blank" rel="noopener noreferrer" class="media-card-link" aria-label="技術同人誌 執筆出展日記">
+              <div class="media-embed-box note-cover-box">
+                <img src="assets/note_doujin.jpg" alt="技術同人誌 執筆出展日記" class="media-thumbnail">
+                <div class="media-play-overlay note-overlay">
+                  <span class="note-read-btn">
+                    <i class="ph-fill ph-article"></i>
+                    <span>noteで読む</span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="media-details">
+              <div class="media-meta-row">
+                <span class="media-category-label cat-exam">技術同人誌</span>
+                <span class="media-published">MAGAZINE</span>
+              </div>
+              <h3 class="media-headline">
+                <a href="https://note.com/datamanagement/m/m95da708ecc66" target="_blank" rel="noopener noreferrer">技術同人誌 執筆出展日記</a>
+              </h3>
+              <p class="media-description">
+                技術書典での同人誌執筆から出展・頒布に至るまでのプロセスや執筆知見をまとめたドキュメントマガジン。
+              </p>
+              <a href="https://note.com/datamanagement/m/m95da708ecc66" target="_blank" rel="noopener noreferrer"
+                class="media-direct-link">
+                noteでマガジンを読む <i class="ph ph-arrow-up-right"></i>
               </a>
             </div>
           </article>
@@ -1893,6 +2107,7 @@
       <nav class="footer-sitemap">
         <a href="#top">TOP</a>
         <a href="#videos">VIDEOS</a>
+        <a href="#note">NOTE</a>
         <a href="#profile">PROFILE</a>
         <a href="#creations">作品リスト</a>
         <a href="#works">WORK</a>
