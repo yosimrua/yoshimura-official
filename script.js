@@ -20,16 +20,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* 2. Mobile Menu Toggle */
   if (menuToggle && headerNav) {
-    menuToggle.addEventListener('click', () => {
-      headerNav.classList.toggle('open');
-      menuToggle.classList.toggle('active');
+    const toggleMenu = (open) => {
+      const isOpen = typeof open === 'boolean' ? open : !headerNav.classList.contains('open');
+      headerNav.classList.toggle('open', isOpen);
+      menuToggle.classList.toggle('active', isOpen);
+      document.body.classList.toggle('menu-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    };
+
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu();
     });
 
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
-        headerNav.classList.remove('open');
-        menuToggle.classList.remove('active');
+        toggleMenu(false);
       });
+    });
+
+    // Close on click outside
+    document.addEventListener('click', (e) => {
+      if (headerNav.classList.contains('open') && !headerNav.contains(e.target) && !menuToggle.contains(e.target)) {
+        toggleMenu(false);
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && headerNav.classList.contains('open')) {
+        toggleMenu(false);
+      }
     });
   }
 
