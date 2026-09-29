@@ -1,0 +1,1796 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>よしむら データマネジメント系VTuber 公式サイト</title>
+  <meta name="description"
+    content="データマネジメントと生成AIガバナンスの案内人 データマネジメント系VTuber よしむら の公式タレントサイト。動画一覧、公式プロフィール、作品・登壇実績、お問い合わせ窓口を掲載。">
+  <meta name="keywords" content="よしむら, Yoshimura, VTuber, データマネジメント, 生成AIガバナンス, DMBOK, データ界隈LT祭">
+
+  <!-- OGP -->
+  <meta property="og:title" content="よしむら データマネジメント系VTuber 公式サイト">
+  <meta property="og:description" content="データマネジメントと生成AIガバナンスの案内人 データマネジメント系VTuber よしむら の公式Webサイト。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/avatar.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/avatar.jpg">
+
+  <!-- Fonts: Adobe Typekit (brandon-grotesque) & Google Fonts (Montserrat, Noto Sans JP) -->
+  <link rel="stylesheet" href="https://use.typekit.net/jfs6aei.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Phosphor Icons (Minimal SVG icons) -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- EMBEDDED AGENCY CORE STYLE (Zero-Cache Guarantee) -->
+  <style id="agency-style">
+    /* ==========================================================================
+   YOSHIMURA OFFICIAL VTUBER TALENT WEBSITE
+   Design Architecture: Official VTuber Talent Agency Spec
+   ========================================================================== */
+
+    /* --- 1. System Variables & Reset --- */
+    :root {
+      /* Signature Brand Color: Yoshimura Warm Amber & Terra Cotta */
+      --brand-primary: #D46927;
+      --brand-primary-light: #E8833C;
+      --brand-primary-soft: #F59A52;
+      --brand-secondary: #4A7F9D;
+
+      /* Neutral Palette */
+      --color-black: #1A1A1A;
+      --color-dark: #2A2A2A;
+      --color-text-main: #2D2D2D;
+      --color-text-muted: #666666;
+      --color-text-light: #8E8E8E;
+
+      --color-white: #FFFFFF;
+      --color-bg-base: #FFFFFF;
+      --color-bg-surface: #F8F9FA;
+      --color-border: #E5E5E5;
+      --color-border-light: #EEEEEE;
+
+      /* Professional Agency Typography */
+      --font-sans: "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", YuGothic, "Noto Sans JP", sans-serif;
+      --font-display: brandon-grotesque, Montserrat, "Josefin Sans", sans-serif;
+
+      /* Layout Spacing */
+      --header-height: 72px;
+      --max-content-width: 1200px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text-main);
+      background-color: var(--color-bg-base);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button {
+      font-family: inherit;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    .content-container {
+      max-width: var(--max-content-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    /* ==========================================================================
+   2. HEADER (Clean Minimal Official Navigation)
+   ========================================================================== */
+    .talent-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--header-height);
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 1000;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .talent-header.scrolled {
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+
+    .brand-avatar-box {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1.5px solid var(--color-border);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .action-btn.btn-kindle:hover i {
+      color: #FF9900;
+    }
+
+    .action-btn.btn-techbook:hover i {
+      color: #E8388C;
+    }
+
+    /* Contact Section Solo */
+    .contact-box-wrapper {
+      width: 100%;
+      text-align: left;
+      padding: 10px 0 20px;
+    }
+
+    .contact-lead-text {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--color-text-muted);
+      margin-bottom: 32px;
+      max-width: 800px;
+      word-break: auto-phrase;
+    }
+
+    .contact-action-group {
+      display: flex;
+      justify-content: flex-start;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .contact-primary-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--brand-primary);
+      color: var(--color-white);
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 4px;
+      box-shadow: 0 4px 14px rgba(212, 105, 39, 0.25);
+      transition: all 0.2s ease;
+    }
+
+    .contact-primary-btn:hover {
+      background: var(--brand-primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(212, 105, 39, 0.35);
+    }
+
+    .contact-secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--color-white);
+      color: var(--color-black);
+      border: 1px solid var(--color-border);
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: all 0.2s ease;
+    }
+
+    .contact-secondary-btn:hover {
+      border-color: var(--color-black);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .brand-symbol {
+      width: 32px;
+      height: 32px;
+      background-color: var(--color-black);
+      color: var(--color-white);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 800;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--color-black);
+      line-height: 1.1;
+    }
+
+    .brand-sub {
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--brand-primary);
+    }
+
+    .header-navigation {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .nav-link {
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--color-dark);
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--brand-primary);
+      transition: width 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--brand-primary);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .header-utilities {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .lang-selector {
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--color-text-light);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--color-bg-surface);
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .lang-opt.active {
+      color: var(--brand-primary);
+    }
+
+    .lang-divider {
+      color: #DDD;
+    }
+
+    .header-social-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .social-icon-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-white);
+      font-size: 1rem;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .social-icon-btn.yt {
+      background-color: #CC0000;
+    }
+
+    .social-icon-btn.x {
+      background-color: #000000;
+    }
+
+    .social-icon-btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .mobile-nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+    }
+
+    .mobile-nav-toggle span {
+      width: 100%;
+      height: 2px;
+      background-color: var(--color-black);
+    }
+
+    /* ==========================================================================
+   3. HERO: TALENT STAGE (Full-Bleed Upper Stage)
+   ========================================================================== */
+    .talent-hero-stage {
+      margin-top: var(--header-height);
+      position: relative;
+      background: radial-gradient(circle at 75% 30%, rgba(212, 105, 39, 0.04) 0%, rgba(255, 255, 255, 0) 70%), #FFFFFF;
+      color: var(--color-text-main);
+      min-height: calc(100vh - var(--header-height));
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 40px 0 60px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    /* Background Full Transparent Character Backdrop */
+    .hero-character-backdrop {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .bg-standing-image {
+      position: absolute;
+      right: max(-20px, calc(50% - 600px + 20px));
+      top: 0;
+      transform: none;
+      height: 1420px;
+      max-height: 185vh;
+      width: auto;
+      object-fit: contain;
+      object-position: top center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      filter: contrast(1.02) drop-shadow(0 16px 36px rgba(0, 0, 0, 0.08));
+    }
+
+    .bg-standing-image.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .hero-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+      display: flex;
+    }
+
+    .hero-meta-wrapper {
+      max-width: 580px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .figure-interaction-bar {
+      margin-bottom: 28px;
+    }
+
+    .figure-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      color: var(--color-text-muted);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      transition: all 0.2s ease;
+    }
+
+    .figure-toggle-btn:hover {
+      border-color: var(--color-black);
+      color: var(--color-black);
+      background: var(--color-white);
+    }
+
+    .talent-title-area {
+      margin-bottom: 26px;
+    }
+
+    .talent-rubi {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--brand-primary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .talent-rubi::before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 2px;
+      background-color: var(--brand-primary);
+    }
+
+    .talent-primary-name {
+      font-family: var(--font-sans);
+      font-size: clamp(2.8rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: 0.04em;
+      color: var(--color-black);
+    }
+
+    .talent-statement {
+      margin-bottom: 24px;
+    }
+
+    .statement-lead {
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.6;
+      letter-spacing: 0.02em;
+      color: var(--color-dark);
+    }
+
+    .talent-biography {
+      font-size: 0.96rem;
+      line-height: 1.9;
+      color: var(--color-text-muted);
+      margin-bottom: 36px;
+    }
+
+    .talent-biography p {
+      margin-bottom: 12px;
+    }
+
+    .talent-biography p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Official Action Links (Clean Light Style) */
+    .talent-action-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-white);
+      color: var(--color-dark);
+      font-family: var(--font-display);
+      font-size: 0.84rem;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 4px;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      transition: all 0.2s ease;
+    }
+
+    .action-btn i {
+      font-size: 1.05rem;
+    }
+
+    .action-btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--brand-primary);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .action-btn.btn-yt:hover i {
+      color: #CC0000;
+    }
+
+    .action-btn.btn-x:hover i {
+      color: #000000;
+    }
+
+    .action-btn.btn-note:hover i {
+      color: #2BA08E;
+    }
+
+    .action-btn.btn-community:hover i {
+      color: var(--brand-primary);
+    }
+
+    .action-btn.btn-contact {
+      background: var(--brand-primary);
+      color: var(--color-white);
+      border-color: var(--brand-primary);
+    }
+
+    .action-btn.btn-contact:hover {
+      background: var(--brand-primary-light);
+      border-color: var(--brand-primary-light);
+      color: var(--color-white);
+    }
+
+    .action-btn.btn-contact i {
+      color: var(--color-white);
+    }
+
+    /* ==========================================================================
+   4. COMMON SECTION ARCHITECTURE
+   ========================================================================== */
+    .content-section {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--color-border);
+      scroll-margin-top: var(--header-height);
+    }
+
+    .section-title-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--color-black);
+    }
+
+    .section-title-row.center-aligned {
+      justify-content: center;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .title-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .title-group.centered {
+      align-items: center;
+    }
+
+    .title-sub {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--brand-primary);
+      margin-bottom: 2px;
+    }
+
+    .title-main {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      line-height: 1;
+      color: var(--color-black);
+    }
+
+    .section-view-all {
+      font-family: var(--font-display);
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--brand-primary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.2s ease;
+    }
+
+    .section-view-all:hover {
+      transform: translateX(4px);
+    }
+
+    /* ==========================================================================
+   5. VIDEOS (Media Grid)
+   ========================================================================== */
+    .section-videos {
+      background-color: var(--color-bg-base);
+    }
+
+    .videos-layout-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .media-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .media-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+    }
+
+    .media-embed-box {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: #0F0F0F;
+    }
+
+    .media-embed-box iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .media-details {
+      padding: 18px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .media-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .media-category-label {
+      padding: 3px 8px;
+      border-radius: 2px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--color-white);
+      letter-spacing: 0.04em;
+    }
+
+    .cat-dmbok {
+      background-color: var(--brand-primary);
+    }
+
+    .cat-ai {
+      background-color: var(--brand-secondary);
+    }
+
+    .cat-exam {
+      background-color: #557833;
+    }
+
+    .cat-event {
+      background-color: #7B4B8A;
+    }
+
+    .media-published {
+      font-size: 0.76rem;
+      color: var(--color-text-light);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .media-headline {
+      font-size: 1.02rem;
+      font-weight: 700;
+      line-height: 1.6;
+      color: var(--color-black);
+      margin-bottom: 14px;
+    }
+
+    .media-direct-link {
+      margin-top: auto;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--brand-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s ease;
+    }
+
+    .media-direct-link:hover {
+      color: var(--brand-primary-light);
+    }
+
+    /* ==========================================================================
+   6. PROFILE / DATA (Official Spec Table)
+   ========================================================================== */
+    .section-profile {
+      background-color: var(--color-bg-surface);
+    }
+
+    .profile-data-sheet {
+      width: 100%;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      padding: 32px 40px;
+    }
+
+    .data-sheet-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .data-column {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .data-cell-row {
+      display: flex;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--color-border-light);
+      font-size: 0.92rem;
+    }
+
+    .data-cell-row:last-child {
+      border-bottom: none;
+    }
+
+    .data-label {
+      width: 120px;
+      flex-shrink: 0;
+      font-weight: 700;
+      color: var(--color-dark);
+    }
+
+    .data-value {
+      flex-grow: 1;
+      color: var(--color-text-main);
+      line-height: 1.6;
+    }
+
+    .data-value.font-large {
+      font-size: 1.25rem;
+      letter-spacing: 0.15em;
+    }
+
+    .accent-text {
+      color: var(--brand-primary);
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+   7. WORKS & SPECIAL (Grid Cards)
+   ========================================================================== */
+    .section-creations {
+      background-color: var(--color-bg-base);
+    }
+
+    .section-works {
+      background-color: var(--color-bg-surface);
+    }
+
+    .works-group {
+      margin-bottom: 48px;
+    }
+
+    .works-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .works-group-header {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      border-bottom: 1px solid var(--color-border-light);
+      padding-bottom: 10px;
+    }
+
+    .works-group-en {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--brand-primary);
+      text-transform: uppercase;
+    }
+
+    .works-group-ja {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-black);
+    }
+
+    .works-grid-dual {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .works-grid-triple {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .works-card-wide {
+      grid-column: 1 / -1;
+    }
+
+    .works-layout-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .work-feature-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .work-feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .feature-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .feature-tag {
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--brand-primary);
+      background: rgba(212, 105, 39, 0.08);
+      padding: 3px 8px;
+      border-radius: 2px;
+    }
+
+    .feature-status {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color-text-light);
+      margin-left: auto;
+    }
+
+    .feature-card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.45;
+      color: var(--color-black);
+      margin-bottom: 12px;
+    }
+
+    .feature-card-desc {
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .feature-card-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.8rem;
+      color: var(--color-dark);
+      background: var(--color-bg-surface);
+      padding: 10px 14px;
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+
+    .feature-card-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 16px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      background: var(--color-dark);
+      color: var(--color-white);
+      transition: background-color 0.2s ease;
+    }
+
+    .feature-card-action:hover {
+      background-color: var(--brand-primary);
+    }
+
+    /* ==========================================================================
+   8. GUIDELINES & INQUIRIES
+   ========================================================================== */
+    .section-inquiries {
+      background-color: var(--color-bg-surface);
+    }
+
+    .inquiries-dual-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .inquiry-panel-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      padding: 36px 40px;
+    }
+
+    .panel-header {
+      margin-bottom: 16px;
+    }
+
+    .panel-en {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--brand-primary);
+      margin-bottom: 2px;
+    }
+
+    .panel-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--color-black);
+    }
+
+    .panel-lead {
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .guideline-spec-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 0.88rem;
+      color: var(--color-text-main);
+      line-height: 1.6;
+    }
+
+    .guideline-spec-list li {
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .guideline-spec-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--brand-primary);
+      font-weight: bold;
+    }
+
+    .contact-action-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .contact-primary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 24px;
+      border-radius: 4px;
+      background: var(--brand-primary);
+      color: var(--color-white);
+      font-weight: 700;
+      font-size: 0.94rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .contact-primary-btn:hover {
+      background: #BD5818;
+    }
+
+    .contact-secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 24px;
+      border-radius: 4px;
+      background: var(--color-black);
+      color: var(--color-white);
+      font-weight: 700;
+      font-size: 0.94rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .contact-secondary-btn:hover {
+      background: #333333;
+    }
+
+    /* ==========================================================================
+   9. FOOTER (Official Corporate Footer)
+   ========================================================================== */
+    .talent-footer {
+      background-color: #1A1A1A;
+      color: var(--color-white);
+      padding: 50px 0 36px;
+      text-align: center;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .footer-scroll-top {
+      margin-bottom: 24px;
+    }
+
+    .scroll-top-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--color-white);
+      font-size: 1.1rem;
+      transition: all 0.2s ease;
+    }
+
+    .scroll-top-btn:hover {
+      background: var(--brand-primary);
+      transform: translateY(-2px);
+    }
+
+    .footer-social-row {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .footer-social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-white);
+      font-size: 1.1rem;
+      transition: all 0.2s ease;
+    }
+
+    .footer-social-btn:hover {
+      background: var(--brand-primary);
+      transform: translateY(-2px);
+    }
+
+    .footer-sitemap {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .footer-sitemap a {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.6);
+      transition: color 0.2s ease;
+    }
+
+    .footer-sitemap a:hover {
+      color: var(--color-white);
+    }
+
+    .footer-copyright {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.06em;
+    }
+
+    /* ==========================================================================
+   10. RESPONSIVE DESIGN (Tablets & Mobile)
+   ========================================================================== */
+    @media (max-width: 1024px) {
+      .hero-container {
+        padding: 20px 24px;
+      }
+
+      .bg-standing-image,
+      .bg-standing-image.active {
+        right: -15%;
+        opacity: 0.16;
+      }
+
+      .hero-meta-wrapper {
+        max-width: 100%;
+        padding-bottom: 20px;
+      }
+
+      .videos-layout-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .works-layout-grid,
+      .works-grid-dual,
+      .works-grid-triple {
+        grid-template-columns: 1fr;
+      }
+
+      .inquiries-dual-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-navigation {
+        display: none;
+      }
+
+      .mobile-nav-toggle {
+        display: flex;
+      }
+
+      .talent-primary-name {
+        font-size: 2.5rem;
+      }
+
+      .data-sheet-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .profile-data-sheet {
+        padding: 20px;
+      }
+
+      .videos-layout-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="style.css?v=1790514000">
+</head>
+
+<body id="top">
+
+  <!-- ========================================================================
+       HEADER: Fixed Header
+       ======================================================================== -->
+  <header class="talent-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="#top" class="header-brand">
+        <div class="brand-avatar-box">
+          <img src="assets/avatar.jpg" alt="よしむら" class="brand-avatar-img">
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">よしむら</span>
+          <span class="brand-sub">データマネジメント系Vtuber</span>
+        </div>
+      </a>
+
+      <nav class="header-navigation" id="headerNav">
+        <ul class="nav-menu">
+          <li><a href="#top" class="nav-link active">TOP</a></li>
+          <li><a href="#videos" class="nav-link">VIDEOS</a></li>
+          <li><a href="#profile" class="nav-link">PROFILE</a></li>
+          <li><a href="#creations" class="nav-link">作品リスト</a></li>
+          <li><a href="#works" class="nav-link">WORK</a></li>
+          <li><a href="#contact" class="nav-link">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-utilities">
+        <div class="header-social-links">
+          <a href="https://www.youtube.com/@yoshimura_datam" target="_blank" rel="noopener noreferrer"
+            class="social-icon-btn yt" aria-label="YouTube">
+            <i class="ph-fill ph-youtube-logo"></i>
+          </a>
+          <a href="https://x.com/yoshimura_datam" target="_blank" rel="noopener noreferrer" class="social-icon-btn x"
+            aria-label="X Twitter">
+            <i class="ph ph-x-logo"></i>
+          </a>
+        </div>
+        <button class="mobile-nav-toggle" id="menuToggle" aria-label="メニュー開閉">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========================================================================
+         HERO: TALENT STAGE (背景全面透過キャラクター × 洗練されたタイポグラフィ)
+         ======================================================================== -->
+    <section class="talent-hero-stage" id="heroStage">
+      <!-- Background Full Transparent Character Backdrop -->
+      <div class="hero-character-backdrop" aria-hidden="true">
+        <img src="assets/character_smile_transparent_4x.png?v=4x"
+          srcset="assets/character_smile_transparent_2x.png?v=4x 1x, assets/character_smile_transparent_3x.png?v=4x 2x, assets/character_smile_transparent_4x.png?v=4x 3x"
+          alt="よしむら 立ち絵" class="bg-standing-image figure-smile active" id="figSmile">
+      </div>
+
+      <div class="hero-container">
+
+        <!-- Talent Information & Bio -->
+        <div class="hero-meta-wrapper">
+          <div class="talent-title-area">
+            <div class="talent-rubi">データマネジメント系Vtuber</div>
+            <h1 class="talent-primary-name">
+              よしむら
+            </h1>
+          </div>
+
+          <div class="talent-statement">
+            <p class="statement-lead">
+              データマネジメントと生成AIガバナンスの案内人。
+            </p>
+          </div>
+
+          <div class="talent-biography">
+            <p>
+              難解になりがちなデータマネジメント や生成AIガバナンスの考え方を、誰もが実践できる知識として届けるVTuber。
+            </p>
+            <p>
+              メガベンチャー、金融、エンタメなど多様な現場での実務推進経験をもとに、YouTube解説動画、技術ブログ、技術同人誌、コミュニティ運営など、精力的に活動中。
+            </p>
+          </div>
+
+          <!-- Official Links -->
+          <div class="talent-action-links">
+            <a href="https://www.youtube.com/@yoshimura_datam" target="_blank" rel="noopener noreferrer"
+              class="action-btn btn-yt">
+              <i class="ph-fill ph-youtube-logo"></i>
+              <span>YouTube Channel</span>
+            </a>
+            <a href="https://x.com/yoshimura_datam" target="_blank" rel="noopener noreferrer" class="action-btn btn-x">
+              <i class="ph ph-x-logo"></i>
+              <span>X Twitter</span>
+            </a>
+            <a href="https://note.com/datamanagement" target="_blank" rel="noopener noreferrer"
+              class="action-btn btn-note">
+              <i class="ph-fill ph-article"></i>
+              <span>note</span>
+            </a>
+            <a href="https://link.amazon/B0bBdcdbY" target="_blank" rel="noopener noreferrer"
+              class="action-btn btn-kindle">
+              <i class="ph-fill ph-book-open"></i>
+              <span>Kindle書籍</span>
+            </a>
+            <a href="https://techbookfest.org/organization/9FyhHFkrJzNvPP5UwST4EZ" target="_blank"
+              rel="noopener noreferrer" class="action-btn btn-techbook">
+              <i class="ph-fill ph-books"></i>
+              <span>技術書典</span>
+            </a>
+            <a href="#contact" class="action-btn btn-contact">
+              <i class="ph ph-envelope-simple"></i>
+              <span>お問い合わせ</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         VIDEOS (おすすめ動画リスト)
+         ======================================================================== -->
+    <section class="content-section section-videos" id="videos">
+      <div class="content-container">
+
+        <div class="section-title-row">
+          <div class="title-group">
+            <span class="title-sub">RECOMMENDED</span>
+            <h2 class="title-main">VIDEOS</h2>
+          </div>
+          <a href="https://www.youtube.com/@yoshimura_datam" target="_blank" rel="noopener noreferrer"
+            class="section-view-all">
+            VIEW ALL <i class="ph ph-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="videos-layout-grid">
+
+          <!-- 1. 試験対策動画 -->
+          <article class="media-card">
+            <div class="media-embed-box video-facade" data-video-id="PDe8YS_5bCo" data-title="データマネジメント試験対策動画">
+              <img src="assets/thumb_exam.jpg" alt="データマネジメント試験対策動画" class="media-thumbnail">
+              <div class="media-play-overlay">
+                <button type="button" class="media-play-btn" aria-label="動画を再生する">
+                  <i class="ph-fill ph-play"></i>
+                </button>
+              </div>
+            </div>
+            <div class="media-details">
+              <div class="media-meta-row">
+                <span class="media-category-label cat-dmbok">試験対策動画</span>
+                <span class="media-published">EXAM GUIDE</span>
+              </div>
+              <h3 class="media-headline">データマネジメント試験対策動画</h3>
+              <a href="https://youtu.be/PDe8YS_5bCo" target="_blank" rel="noopener noreferrer"
+                class="media-direct-link">
+                YouTubeで視聴する <i class="ph ph-arrow-up-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- 2. データマネジメントゆっくり解説 -->
+          <article class="media-card">
+            <div class="media-embed-box video-facade" data-video-id="QCuygkRZctc" data-title="データマネジメントゆっくり解説">
+              <img src="assets/thumb_dmbok.jpg" alt="データマネジメントゆっくり解説" class="media-thumbnail">
+              <div class="media-play-overlay">
+                <button type="button" class="media-play-btn" aria-label="動画を再生する">
+                  <i class="ph-fill ph-play"></i>
+                </button>
+              </div>
+            </div>
+            <div class="media-details">
+              <div class="media-meta-row">
+                <span class="media-category-label cat-ai">ゆっくり解説</span>
+                <span class="media-published">SERIES</span>
+              </div>
+              <h3 class="media-headline">データマネジメントゆっくり解説</h3>
+              <a href="https://youtu.be/QCuygkRZctc" target="_blank" rel="noopener noreferrer"
+                class="media-direct-link">
+                YouTubeで視聴する <i class="ph ph-arrow-up-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- 3. LT祭 -->
+          <article class="media-card">
+            <div class="media-embed-box video-facade" data-video-id="IZV9Q54KHg8" data-list-id="PLdXw3wP4-tMk" data-title="データ界隈LT祭 アーカイブプレイリスト">
+              <img src="assets/thumb_ltfes.jpg" alt="データ界隈LT祭 アーカイブプレイリスト" class="media-thumbnail">
+              <div class="media-play-overlay">
+                <button type="button" class="media-play-btn" aria-label="プレイリストを再生する">
+                  <i class="ph-fill ph-play"></i>
+                </button>
+              </div>
+            </div>
+            <div class="media-details">
+              <div class="media-meta-row">
+                <span class="media-category-label cat-event">LT祭</span>
+                <span class="media-published">PLAYLIST</span>
+              </div>
+              <h3 class="media-headline">データ界隈LT祭 アーカイブプレイリスト</h3>
+              <a href="https://www.youtube.com/playlist?list=PLdXw3wP4-tMk" target="_blank" rel="noopener noreferrer"
+                class="media-direct-link">
+                YouTubeで視聴する <i class="ph ph-arrow-up-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- 4. 雑談配信 -->
+          <article class="media-card">
+            <div class="media-embed-box video-facade" data-video-id="vWed26B3rgM" data-title="データに関する雑談配信">
+              <img src="assets/thumb_talk.jpg" alt="データに関する雑談配信" class="media-thumbnail">
+              <div class="media-play-overlay">
+                <button type="button" class="media-play-btn" aria-label="配信アーカイブを再生する">
+                  <i class="ph-fill ph-play"></i>
+                </button>
+              </div>
+            </div>
+            <div class="media-details">
+              <div class="media-meta-row">
+                <span class="media-category-label cat-exam">雑談配信</span>
+                <span class="media-published">LIVE ARCHIVE</span>
+              </div>
+              <h3 class="media-headline">データに関する雑談配信</h3>
+              <a href="https://youtube.com/live/vWed26B3rgM" target="_blank" rel="noopener noreferrer"
+                class="media-direct-link">
+                YouTubeで視聴する <i class="ph ph-arrow-up-right"></i>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         PROFILE / DATA (公式タレントデータ)
+         ======================================================================== -->
+    <section class="content-section section-profile" id="profile">
+      <div class="content-container">
+
+        <div class="section-title-row">
+          <div class="title-group">
+            <span class="title-sub">OFFICIAL DATA</span>
+            <h2 class="title-main">PROFILE</h2>
+          </div>
+        </div>
+
+        <div class="profile-data-sheet">
+          <div class="data-sheet-grid">
+
+            <div class="data-column">
+              <div class="data-cell-row">
+                <span class="data-label">専門領域</span>
+                <span class="data-value">データマネジメント DMBOK / 生成AIガバナンス</span>
+              </div>
+              <div class="data-cell-row">
+                <span class="data-label">得意分野</span>
+                <span class="data-value">データアーキテクチャ / ガバナンス整備 / 組織チェンジマネジメント</span>
+              </div>
+              <div class="data-cell-row">
+                <span class="data-label">活動テーマ</span>
+                <span class="data-value">難しいことをエンタメ化してわかりやすく</span>
+              </div>
+              <div class="data-cell-row">
+                <span class="data-label">モットー</span>
+                <span class="data-value">理論だけで終わらせない 実務で動くデータ活用</span>
+              </div>
+            </div>
+
+            <div class="data-column">
+              <div class="data-cell-row">
+                <span class="data-label">著書・出版</span>
+                <span class="data-value">今すぐわかるデータマネジメントの進め方 Kindle電子書籍 発売中</span>
+              </div>
+              <div class="data-cell-row">
+                <span class="data-label">主催コミュニティ</span>
+                <span class="data-value">データ界隈LT祭</span>
+              </div>
+              <div class="data-cell-row">
+                <span class="data-label">チャームポイント</span>
+                <span class="data-value">知的なメガネ ＆ クラシカルなコルセットブラウス</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         CREATIONS (作品リスト - 個人主体で制作・運営しているオリジナル作品)
+         ======================================================================== -->
+    <section class="content-section section-creations" id="creations">
+      <div class="content-container">
+
+        <div class="section-title-row">
+          <div class="title-group">
+            <h2 class="title-main">作品リスト</h2>
+          </div>
+        </div>
+
+        <div class="works-grid-dual">
+
+          <!-- 1. 電子書籍 Kindle -->
+          <article class="work-feature-card">
+            <h3 class="feature-card-title">電子書籍 Kindleストア配信中</h3>
+            <p class="feature-card-desc">
+              理論倒れになりがちなDMBOKのフレームワークを 現場のリアルな実務に落とし込んで徹底解説した決定版ガイド。Kindleストアにて発売中。
+            </p>
+            <a href="https://link.amazon/B0bBdcdbY" target="_blank" rel="noopener noreferrer"
+              class="feature-card-action">
+              Kindleストアへ <i class="ph ph-arrow-up-right"></i>
+            </a>
+          </article>
+
+          <!-- 2. 技術書典 -->
+          <article class="work-feature-card">
+            <h3 class="feature-card-title">技術書典 出典技術同人誌一覧</h3>
+            <p class="feature-card-desc">
+              日本最大の技術書オンリーイベント 技術書典 にて データマネジメント 実務の知見をまとめた同人誌を出展 頒布。
+            </p>
+            <a href="https://techbookfest.org/organization/9FyhHFkrJzNvPP5UwST4EZ" target="_blank"
+              rel="noopener noreferrer" class="feature-card-action">
+              技術書典 サークルページへ <i class="ph ph-arrow-up-right"></i>
+            </a>
+          </article>
+
+          <!-- 3. note 公式ブログ -->
+          <article class="work-feature-card">
+            <h3 class="feature-card-title">データマネジメント解説note</h3>
+            <p class="feature-card-desc">
+              データマネジメントや生成AIガバナンスの実務知見、現場のリアルな課題解決ノウハウをわかりやすく発信・連載中。
+            </p>
+            <a href="https://note.com/datamanagement" target="_blank" rel="noopener noreferrer"
+              class="feature-card-action">
+              noteで読む <i class="ph ph-arrow-up-right"></i>
+            </a>
+          </article>
+
+          <!-- 4. カクヨム Web小説 -->
+          <article class="work-feature-card">
+            <h3 class="feature-card-title">カクヨム データ系異世界転生ライトノベル</h3>
+            <p class="feature-card-desc">
+              Excelの使い方が学べる異世界転生物語。新人エルフが表計算の力でブラック化した里の業務改革に挑む。カクヨムにて公開中。
+            </p>
+            <a href="https://kakuyomu.jp/works/16818622175370446958/episodes/16818622175375072192" target="_blank" rel="noopener noreferrer"
+              class="feature-card-action">
+              カクヨムで読む <i class="ph ph-arrow-up-right"></i>
+            </a>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         WORK (お仕事実績 - 登壇・メディア連載・クライアントワーク・コミュニティ)
+         ======================================================================== -->
+    <section class="content-section section-works" id="works">
+      <div class="content-container">
+
+        <div class="section-title-row">
+          <div class="title-group">
+            <h2 class="title-main">WORK</h2>
+          </div>
+        </div>
+
+        <div class="works-grid-dual">
+
+          <!-- 1. エイトレッド: バックオフィスDXカンファレンス 基調講演 -->
+          <article class="work-feature-card">
+            <h3 class="feature-card-title">バックオフィスDXカンファレンス 基調講演</h3>
+            <p class="feature-card-desc">
+              AIをもっと活用するためにシステムと人財がともに進化する2日間。エイトレッド ワークフロー総研主催の大型ビジネスカンファレンスにて基調講演を実施。
+            </p>
+            <a href="https://www.atled.jp/wfl/article/69383/" target="_blank" rel="noopener noreferrer"
+              class="feature-card-action">
+              カンファレンス詳細へ <i class="ph ph-arrow-up-right"></i>
+            </a>
+          </article>
+
+          <!-- 2. データのじかん: Web連載 -->
+          <article class="work-feature-card">
+            <h3 class="feature-card-title">ウイングアーク1st データのじかん 連載</h3>
+            <p class="feature-card-desc">
+              データで越境者に寄り添うメディア「データのじかん」にて、AI事務員宮西さん データ組織立ち上げ編として実践ノウハウを連載。
+            </p>
+            <a href="https://data.wingarc.com/tag/ai-clerk-miyanishi-data-organisation" target="_blank"
+              rel="noopener noreferrer" class="feature-card-action">
+              連載記事を読む <i class="ph ph-arrow-up-right"></i>
+            </a>
+          </article>
+
+          <!-- 3. 100人カイギ: キュレーター・登壇 -->
+          <article class="work-feature-card">
+            <h3 class="feature-card-title">データ界隈100人カイギ キュレーター</h3>
+            <p class="feature-card-desc">
+              街や領域で働く100人を起点に人と人とをゆるやかにつなぐコミュニティ。ウイングアーク1stコラボスペースにて公式キュレーターとして企画・登壇。
+            </p>
+            <a href="https://techplay.jp/event/974016" target="_blank" rel="noopener noreferrer"
+              class="feature-card-action">
+              イベント詳細へ <i class="ph ph-arrow-up-right"></i>
+            </a>
+          </article>
+
+          <!-- 4. データ界隈LT祭 (コミュニティ統合) -->
+          <article class="work-feature-card">
+            <h3 class="feature-card-title">データ界隈LT祭</h3>
+            <p class="feature-card-desc">
+              データエンジニア アナリスト ガバナンス推進者が集い 現場のリアルな課題や試行錯誤をLT形式で共有し合うオンラインコミュニティ。定期開催のLT祭を通じて実務者同士の知見共有ネットワークを推進。
+            </p>
+            <a href="https://ltfes.datayokocho.info/" target="_blank" rel="noopener noreferrer"
+              class="feature-card-action">
+              コミュニティ公式サイトへ <i class="ph ph-arrow-up-right"></i>
+            </a>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         CONTACT (お問い合わせ)
+         ======================================================================== -->
+    <section class="content-section section-contact" id="contact">
+      <div class="content-container">
+
+        <div class="section-title-row">
+          <div class="title-group">
+            <span class="title-sub">BUSINESS &amp; INQUIRY</span>
+            <h2 class="title-main">CONTACT</h2>
+          </div>
+        </div>
+
+        <div class="contact-box-wrapper">
+          <p class="contact-lead-text">
+            カンファレンス登壇、社内研修、技術記事執筆・監修、<br>
+            データマネジメントや生成AIガバナンスのご相談など幅広く承っております。
+          </p>
+
+          <div class="contact-action-group">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAvsykZJ9tONcwfqtPrY5zEAvymHnHPpyKM9V8dSL3KHdfGw/viewform?usp=dialog" target="_blank" rel="noopener noreferrer"
+              class="contact-primary-btn">
+              <i class="ph ph-envelope-simple"></i>
+              <span>公式お問い合わせフォーム</span>
+            </a>
+            <a href="https://x.com/yoshimura_datam" target="_blank" rel="noopener noreferrer"
+              class="contact-secondary-btn">
+              <i class="ph ph-x-logo"></i>
+              <span>X Twitter DMで相談</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       FOOTER (洗練されたコーポレート＆タレントフッター)
+       ======================================================================== -->
+  <footer class="talent-footer">
+    <div class="footer-container">
+
+      <div class="footer-scroll-top">
+        <a href="#top" class="scroll-top-btn" aria-label="ページトップへ戻る">
+          <i class="ph ph-caret-up"></i>
+        </a>
+      </div>
+
+      <div class="footer-social-row">
+        <a href="https://x.com/yoshimura_datam" target="_blank" rel="noopener noreferrer" class="footer-social-btn"
+          aria-label="X Twitter">
+          <i class="ph ph-x-logo"></i>
+        </a>
+        <a href="https://www.youtube.com/@yoshimura_datam" target="_blank" rel="noopener noreferrer"
+          class="footer-social-btn" aria-label="YouTube">
+          <i class="ph-fill ph-youtube-logo"></i>
+        </a>
+        <a href="https://note.com/datamanagement" target="_blank" rel="noopener noreferrer" class="footer-social-btn"
+          aria-label="note">
+          <i class="ph-fill ph-article"></i>
+        </a>
+      </div>
+
+      <nav class="footer-sitemap">
+        <a href="#top">TOP</a>
+        <a href="#videos">VIDEOS</a>
+        <a href="#profile">PROFILE</a>
+        <a href="#creations">作品リスト</a>
+        <a href="#works">WORK</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+
+      <div class="footer-copyright">
+        <small>&copy; YOSHIMURA Official. All Rights Reserved.</small>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+
+</html>
