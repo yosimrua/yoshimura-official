@@ -108,6 +108,6 @@
 * **データ界隈LT祭**: https://ltfes.datayokocho.info/
 * **技術書典**: https://techbookfest.org/organization/9FyhHFkrJzNvPP5UwST4EZ
 * **バックオフィスDXカンファレンス**: https://www.atled.jp/wfl/article/69383/
-* **データ界隈100人カイギ**: https://techplay.jp/event/974016
+* **データ界隈100人カイギ**: https://100ninkaigi.com/area/datakaiwai
 * **データのじかん 連載**: https://data.wingarc.com/tag/ai-clerk-miyanishi-data-organisation
 * **カクヨム Web小説**: https://kakuyomu.jp/works/16818622175370446958/episodes/16818622175375072192
